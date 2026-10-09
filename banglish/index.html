@@ -162,6 +162,27 @@
     ::-webkit-scrollbar-track { background: #f8fafc; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Audio Equalizer Animated Bars */
+    @keyframes eqBar1 { 0%, 100% { height: 4px; } 50% { height: 16px; } }
+    @keyframes eqBar2 { 0%, 100% { height: 14px; } 50% { height: 5px; } }
+    @keyframes eqBar3 { 0%, 100% { height: 6px; } 50% { height: 18px; } }
+    @keyframes eqBar4 { 0%, 100% { height: 12px; } 50% { height: 4px; } }
+
+    .eq-bar-1 { animation: eqBar1 0.8s ease-in-out infinite; }
+    .eq-bar-2 { animation: eqBar2 0.7s ease-in-out infinite; }
+    .eq-bar-3 { animation: eqBar3 0.9s ease-in-out infinite; }
+    .eq-bar-4 { animation: eqBar4 0.75s ease-in-out infinite; }
+
+    .eq-paused .eq-bar-1,
+    .eq-paused .eq-bar-2,
+    .eq-paused .eq-bar-3,
+    .eq-paused .eq-bar-4 {
+      animation: none !important;
+      height: 4px !important;
+      opacity: 0.4;
+    }
+
   </style>
 </head>
 <body class="relative min-h-screen text-slate-800 bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/30 overflow-x-hidden selection:bg-brand-100 selection:text-brand-900">
@@ -1060,6 +1081,57 @@
     </div>
   </footer>
 
+  <!-- ======================================================== -->
+  <!-- Persistent Floating Background Audio Player (Always On Display) -->
+  <!-- ======================================================== -->
+  <aside id="bg-audio-container" aria-label="Background Music Player" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 transition-all duration-300">
+    <div class="hover-card flex items-center gap-2.5 sm:gap-3.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-white/95 backdrop-blur-xl border border-emerald-200/90 shadow-xl shadow-emerald-950/10 select-none">
+      
+      <!-- Animated Equalizer Bars Container -->
+      <button id="audio-toggle-btn" type="button" class="flex items-center gap-2 group focus:outline-none p-1 cursor-pointer" title="Play / Mute (Space Bar)" aria-label="Toggle Audio">
+        <div id="eq-visualizer" class="flex items-end gap-1 h-5 w-5 justify-center">
+          <span class="w-1 bg-emerald-500 rounded-full eq-bar-1"></span>
+          <span class="w-1 bg-emerald-600 rounded-full eq-bar-2"></span>
+          <span class="w-1 bg-teal-500 rounded-full eq-bar-3"></span>
+          <span class="w-1 bg-emerald-400 rounded-full eq-bar-4"></span>
+        </div>
+      </button>
+
+      <!-- Track Information -->
+      <div class="flex flex-col text-left cursor-pointer" id="audio-info-click" title="Play / Mute (Space Bar)">
+        <div class="flex items-center gap-1.5">
+          <span class="text-xs sm:text-sm font-bold text-slate-800 font-bangla leading-tight">আমি বাংলায় গান গাই</span>
+          <span id="audio-badge" class="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono font-semibold">Low dB</span>
+        </div>
+        <div class="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-500 font-bangla -mt-0.5">
+          <span id="audio-status-text">সফট ব্যাকগ্রাউন্ড মিউজিক</span>
+          <span class="hidden md:inline text-slate-300">•</span>
+          <span class="hidden md:inline px-1 py-0.2 rounded bg-slate-100 text-slate-500 font-mono text-[9px] border border-slate-200">Space = Mute</span>
+        </div>
+      </div>
+
+      <!-- Action Mute/Unmute Button -->
+      <button id="mute-unmute-btn" type="button" class="w-8 h-8 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition-all active:scale-95 cursor-pointer" aria-label="Mute or Unmute audio">
+        <!-- Speaker Icon (Unmuted) -->
+        <svg id="audio-icon-unmuted" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+        <!-- Speaker Muted Icon -->
+        <svg id="audio-icon-muted" class="w-4 h-4 hidden text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        </svg>
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- HTML5 Audio Element for Background Music -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="assets/ami-banglay-gan-gai.m4a" type="audio/mp4">
+  </audio>
+
+
   <!-- ========================================== -->
   <!-- Interactive Transliteration Script         -->
   <!-- ========================================== -->
@@ -1357,6 +1429,115 @@
     window.addEventListener('DOMContentLoaded', () => {
       startAutoDemo();
     });
+
+    // ==========================================
+    // Background Audio & Keyboard Space Shortcut
+    // ==========================================
+    const bgAudio = document.getElementById('bg-audio');
+    const muteBtn = document.getElementById('mute-unmute-btn');
+    const audioToggleBtn = document.getElementById('audio-toggle-btn');
+    const audioInfoClick = document.getElementById('audio-info-click');
+    const eqVisualizer = document.getElementById('eq-visualizer');
+    const audioIconUnmuted = document.getElementById('audio-icon-unmuted');
+    const audioIconMuted = document.getElementById('audio-icon-muted');
+    const audioStatusText = document.getElementById('audio-status-text');
+    const audioBadge = document.getElementById('audio-badge');
+
+    let isAudioPlaying = false;
+    let isUserMuted = false;
+    const LOW_DB_VOLUME = 0.16; // Low dB soft whisper level
+
+    if (bgAudio) {
+      bgAudio.volume = LOW_DB_VOLUME;
+    }
+
+    function updateAudioUI(isPlaying, isMuted) {
+      if (isPlaying && !isMuted) {
+        eqVisualizer.classList.remove('eq-paused');
+        audioIconUnmuted.classList.remove('hidden');
+        audioIconMuted.classList.add('hidden');
+        audioStatusText.textContent = 'প্লে হচ্ছে (Low dB)';
+        audioBadge.textContent = 'Active';
+        audioBadge.className = 'px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono font-semibold';
+      } else {
+        eqVisualizer.classList.add('eq-paused');
+        audioIconUnmuted.classList.add('hidden');
+        audioIconMuted.classList.remove('hidden');
+        audioStatusText.textContent = isMuted ? 'মিউটেড (Space = Play)' : 'পজ করা';
+        audioBadge.textContent = 'Muted';
+        audioBadge.className = 'px-1.5 py-0.2 rounded bg-rose-100 text-rose-800 text-[10px] font-mono font-semibold';
+      }
+    }
+
+    async function playAudio() {
+      if (!bgAudio) return;
+      try {
+        bgAudio.volume = LOW_DB_VOLUME;
+        await bgAudio.play();
+        isAudioPlaying = true;
+        isUserMuted = false;
+        updateAudioUI(true, false);
+      } catch (err) {
+        updateAudioUI(false, true);
+      }
+    }
+
+    function pauseOrMuteAudio() {
+      if (!bgAudio) return;
+      bgAudio.pause();
+      isAudioPlaying = false;
+      isUserMuted = true;
+      updateAudioUI(false, true);
+    }
+
+    function toggleAudio() {
+      if (bgAudio.paused || isUserMuted) {
+        playAudio();
+      } else {
+        pauseOrMuteAudio();
+      }
+    }
+
+    if (muteBtn) muteBtn.addEventListener('click', toggleAudio);
+    if (audioToggleBtn) audioToggleBtn.addEventListener('click', toggleAudio);
+    if (audioInfoClick) audioInfoClick.addEventListener('click', toggleAudio);
+
+    // Keyboard Space shortcut (Only when NOT typing inside an input/textarea)
+    window.addEventListener('keydown', (e) => {
+      const activeEl = document.activeElement;
+      const isInputActive = activeEl && (
+        activeEl.tagName === 'INPUT' || 
+        activeEl.tagName === 'TEXTAREA' || 
+        activeEl.isContentEditable
+      );
+
+      if (e.code === 'Space' && !isInputActive) {
+        e.preventDefault(); // Prevents page from scrolling down
+        toggleAudio();
+      }
+    });
+
+    // Auto-start on first user interaction anywhere (complies with browser policy)
+    function onFirstInteraction() {
+      if (!isUserMuted && bgAudio.paused) {
+        playAudio();
+      }
+      window.removeEventListener('click', onFirstInteraction);
+      window.removeEventListener('scroll', onFirstInteraction);
+      window.removeEventListener('keydown', onFirstInteraction);
+      window.removeEventListener('touchstart', onFirstInteraction);
+    }
+
+    window.addEventListener('click', onFirstInteraction, { passive: true });
+    window.addEventListener('scroll', onFirstInteraction, { passive: true });
+    window.addEventListener('keydown', onFirstInteraction, { passive: true });
+    window.addEventListener('touchstart', onFirstInteraction, { passive: true });
+
+    // Try starting on DOM load
+    window.addEventListener('DOMContentLoaded', () => {
+      playAudio();
+    });
+
   </script>
 </body>
 </html>
