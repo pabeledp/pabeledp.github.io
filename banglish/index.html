@@ -1397,26 +1397,24 @@
     });
 
     // ==========================================
+    // ==========================================
     // Background Audio & Keyboard Space Shortcut
     // ==========================================
     const bgAudio = document.getElementById('bg-audio');
     const audioMasterBtn = document.getElementById('audio-master-btn');
-    const eqVisualizer = document.getElementById('eq-visualizer');
     const audioIconPause = document.getElementById('audio-icon-pause');
     const audioIconPlay = document.getElementById('audio-icon-play');
-    const audioStatusText = document.getElementById('audio-status-text');
-    const audioBadge = document.getElementById('audio-badge');
 
     let isAudioPlaying = false;
     let isUserMuted = false;
-    const LOW_DB_VOLUME = 0.16; // Low dB soft whisper level
+    const LOW_DB_VOLUME = 0.16; // Low dB soft volume (16%)
 
     if (bgAudio) {
       bgAudio.volume = LOW_DB_VOLUME;
     }
 
-    function updateAudioUI(isPlaying, isMuted) {
-      if (isPlaying && !isMuted) {
+    function updateAudioUI(isPlaying) {
+      if (isPlaying) {
         if (audioIconPause) audioIconPause.classList.remove('hidden');
         if (audioIconPlay) audioIconPlay.classList.add('hidden');
         if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'পজ করুন (Space = Pause)');
@@ -1426,7 +1424,6 @@
         if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'প্লে করুন (Space = Play)');
       }
     }
-    }
 
     async function playAudio() {
       if (!bgAudio) return;
@@ -1435,29 +1432,39 @@
         await bgAudio.play();
         isAudioPlaying = true;
         isUserMuted = false;
-        updateAudioUI(true, false);
+        updateAudioUI(true);
       } catch (err) {
-        updateAudioUI(false, true);
+        isAudioPlaying = false;
+        updateAudioUI(false);
       }
     }
 
-    function pauseOrMuteAudio() {
+    function pauseAudio() {
       if (!bgAudio) return;
       bgAudio.pause();
       isAudioPlaying = false;
       isUserMuted = true;
-      updateAudioUI(false, true);
+      updateAudioUI(false);
     }
 
-    function toggleAudio() {
-      if (bgAudio.paused || isUserMuted) {
+    function toggleAudio(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      cleanupFirstInteraction();
+
+      if (!bgAudio) return;
+      if (bgAudio.paused) {
         playAudio();
       } else {
-        pauseOrMuteAudio();
+        pauseAudio();
       }
     }
 
-    if (audioMasterBtn) audioMasterBtn.addEventListener('click', toggleAudio);
+    if (audioMasterBtn) {
+      audioMasterBtn.addEventListener('click', toggleAudio);
+    }
 
     // Keyboard Space shortcut (Only when NOT typing inside an input/textarea)
     window.addEventListener('keydown', (e) => {
@@ -1468,17 +1475,24 @@
         activeEl.isContentEditable
       );
 
-      if (e.code === 'Space' && !isInputActive) {
-        e.preventDefault(); // Prevents page from scrolling down
-        toggleAudio();
+      if ((e.code === 'Space' || e.key === ' ' || e.keyCode === 32) && !isInputActive) {
+        e.preventDefault();
+        toggleAudio(e);
       }
     });
 
     // Auto-start on first user interaction anywhere (complies with browser policy)
-    function onFirstInteraction() {
-      if (!isUserMuted && bgAudio.paused) {
+    function onFirstInteraction(e) {
+      if (e && e.target && (e.target.closest('#audio-master-btn') || e.target.closest('#bg-audio-container'))) {
+        return;
+      }
+      if (!isUserMuted && bgAudio && bgAudio.paused) {
         playAudio();
       }
+      cleanupFirstInteraction();
+    }
+
+    function cleanupFirstInteraction() {
       window.removeEventListener('click', onFirstInteraction);
       window.removeEventListener('scroll', onFirstInteraction);
       window.removeEventListener('keydown', onFirstInteraction);
@@ -1494,7 +1508,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       playAudio();
     });
-
   </script>
 </body>
 </html>
