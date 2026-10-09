@@ -1177,8 +1177,12 @@
     // Comprehensive Phonetic Dictionary for High Accuracy Transliteration
     const wordDictionary = {
       'amra': 'আমরা',
-      'khalobasa': 'ভালোবাসা',
+      'valobasa': 'ভালোবাসা',
+      'valobasha': 'ভালোবাসা',
       'bhalobasa': 'ভালোবাসা',
+      'bhalobasha': 'ভালোবাসা',
+      'khalobasa': 'ভালোবাসা',
+      'valo': 'ভালো',
       'bhalo': 'ভালো',
       'ami': 'আমি',
       'tumi': 'তুমি',
@@ -1241,6 +1245,7 @@
         res = res.replace(/dh/g, 'ধ');
         res = res.replace(/ph/g, 'ফ');
         res = res.replace(/bh/g, 'ভ');
+        res = res.replace(/v/g, 'ভ');
         res = res.replace(/sh/g, 'শ');
         res = res.replace(/rh/g, 'ঢ়');
 
@@ -1371,7 +1376,7 @@
     let isAutoDemoRunning = true; // Started by default!
     const demoPhrases = [
       'amra banglay gan gai',
-      'khalobasa shobar jonno',
+      'valobasa shobar jonno',
       'bangladesh shundor desh',
       'ami banglay gan gai'
     ];
