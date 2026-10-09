@@ -123,29 +123,19 @@
       border-color: rgba(16, 185, 129, 0.45);
     }
 
-    /* Avro tribute box custom subtle gold-emerald gradient border */
+    /* Avro tribute box custom dark-green hover */
     .tribute-box {
       position: relative;
       border-radius: 1.5rem;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 253, 250, 0.94));
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-    }
-    .tribute-box::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, #10b981 0%, #f59e0b 50%, #059669 100%);
-      border-radius: inherit;
-      z-index: -1;
-      opacity: 0.38;
-      transition: opacity 0.4s ease, filter 0.4s ease;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .tribute-box:hover {
-      transform: translateY(-4px);
-    }
-    .tribute-box:hover::before {
-      opacity: 0.78;
-      filter: drop-shadow(0 4px 20px rgba(245, 158, 11, 0.28));
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #022c22 0%, #064e3b 45%, #043d2e 100%);
+      border-color: rgba(52, 211, 153, 0.5);
+      box-shadow: 0 25px 45px -10px rgba(6, 78, 59, 0.35), 0 0 30px rgba(16, 185, 129, 0.2);
     }
 
     /* Soft pulse glow */
@@ -814,39 +804,42 @@
   <section id="tribute" class="py-16 sm:py-20 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Dedicated Tribute Box with Golden/Emerald subtle gradient border -->
-      <div class="tribute-box p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Dedicated Tribute Box with Dark Green Hover -->
+      <div class="tribute-box group p-6 sm:p-10 md:p-12 shadow-xl relative overflow-hidden transition-all duration-400">
         
         <!-- Subtle Background Glow Element -->
-        <div class="absolute -top-16 -right-16 w-60 h-60 bg-amber-200/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-16 -right-16 w-60 h-60 bg-emerald-200/20 group-hover:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none transition-colors duration-400"></div>
 
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 mb-6 sm:mb-8 text-center sm:text-left">
-          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-white flex items-center justify-center shadow-lg shadow-amber-500/25 flex-shrink-0">
+          <!-- Icon -->
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shadow-lg shadow-emerald-600/25 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
             <svg class="w-8 h-8 sm:w-9 sm:h-9" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold font-bangla mb-2">
-              <span>বিনম্র শ্রদ্ধা ও কৃতজ্ঞতা স্বীকার</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-bangla leading-snug">
-              অভ্র এবং এর স্রষ্টাদের প্রতি বিনম্র শ্রদ্ধা
+            <!-- Headline in English: Tribute to Avro Keyboard -->
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 group-hover:text-white font-sans tracking-tight transition-colors duration-300">
+              Tribute to Avro Keyboard
             </h3>
+            <!-- Below it in Bangla: ভাষা হোক উন্মুক্ত! -->
+            <div class="text-lg sm:text-xl font-bold text-emerald-700 group-hover:text-emerald-300 font-bangla mt-1 transition-colors duration-300">
+              ভাষা হোক উন্মুক্ত!
+            </div>
           </div>
         </div>
 
         <!-- Tribute Quote Block -->
-        <blockquote class="text-sm sm:text-base md:text-lg text-slate-700 font-bangla leading-relaxed border-l-4 border-amber-400 pl-4 sm:pl-5 my-4 sm:my-6 italic bg-amber-50/30 py-3 rounded-r-xl">
-          "বাংলা ডিজিটাল টাইপিং জগতে 'অভ্র' এবং তানবিন ইসলাম সিয়াম ভাইসহ পুরো টিম অভ্রর অবদান চিরস্মরণীয়। দীর্ঘ সময় ধরে অভ্র নতুন কোনো অফিশিয়াল ম্যাক আপডেট না আনায়, অল্টারনেティブ হিসেবে আমরা 'Banglish' ডেভেলপ করেছি। আমরা সবসময় অভ্র এবং তাদের দলের এই মহতী উদ্যোগের প্রতি গভীরভাবে কৃতজ্ঞ। অভ্র-র আদর্শ অনুসরণ করেই Banglish-কে সম্পূর্ণ বিনামূল্যে ও সবার জন্য উন্মুক্ত রাখা হয়েছে।"
+        <blockquote class="text-sm sm:text-base md:text-lg text-slate-700 group-hover:text-slate-100 font-bangla leading-relaxed sm:leading-loose border-l-4 border-emerald-500 pl-4 sm:pl-5 my-4 sm:my-6 bg-emerald-50/40 group-hover:bg-white/10 py-4 sm:py-5 rounded-r-2xl transition-colors duration-300">
+          "বাংলা কম্পিউটিংয়ের ইতিহাসে ওমিক্রনল্যাব (OmicronLab) এবং অভ্র কিবোর্ডের (Avro Keyboard) অবদান চিরভাস্বর ও অতুলনীয়। &ldquo;ভাষা হোক উন্মুক্ত&rdquo;—এই চিরন্তন মূলমন্ত্রকে ধারণ করে ডা. মেহদী হাসান খান এবং তাঁর অগ্রগামী দল বিশ্বজুড়ে কোটি কোটি মানুষের হাতে তুলে দিয়েছিলেন ফোনেটিক বাংলা টাইপিংয়ের অপার স্বাধীনতা। ওমিক্রনল্যাব এবং আইঅভ্র (iAvro) প্রজেক্টের সমস্ত আদি নির্মাতাদের প্রতি আমরা জানাই আমাদের অন্তরের গভীর শ্রদ্ধা, বিনম্র কৃতজ্ঞতা ও সাধুবাদ।"
         </blockquote>
 
         <!-- Tribute Badge Footer -->
-        <div class="pt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/60 text-xs text-slate-500 font-bangla">
+        <div class="pt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/60 group-hover:border-emerald-800/80 text-xs text-slate-500 group-hover:text-emerald-200 font-bangla transition-colors duration-300">
           <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>অনুপ্রেরণায়: ডা. মেহেদী হাসান খান ও ওমিক্রনল্যাব (OmicronLab) টিম</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>অনুপ্রেরণায়: ডা. মেহদী হাসান খান ও ওমিক্রনল্যাব (OmicronLab) টিম</span>
           </div>
-          <div class="font-mono text-emerald-700 font-medium">
-            #FreeBanglaTyping • #OpenSource
+          <div class="font-mono text-emerald-700 group-hover:text-emerald-300 font-medium transition-colors duration-300">
+            #FreeBanglaTyping • #AvroTribute
           </div>
         </div>
 
