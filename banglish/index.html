@@ -1062,41 +1062,32 @@
   </footer>
 
   <!-- ======================================================== -->
-  <!-- Persistent Floating Background Audio Player (Compact & Mobile Minimal) -->
+  <!-- Persistent Floating Background Audio Player (Play & Pause Icon Only on Mobile) -->
   <!-- ======================================================== -->
   <aside id="bg-audio-container" aria-label="Background Music Player" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 select-none">
     <button 
       id="audio-master-btn" 
       type="button" 
-      class="hover-card group flex items-center justify-center gap-2 sm:gap-2.5 w-11 h-11 sm:w-auto sm:h-auto p-2 sm:px-3.5 sm:py-2 rounded-full sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-emerald-200/90 shadow-lg shadow-emerald-950/10 hover:border-emerald-400 focus:outline-none transition-all active:scale-95 cursor-pointer"
-      title="আমি বাংলায় গান গাই • Play / Mute (Space)"
-      aria-label="Toggle Background Music"
+      class="hover-card group flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto p-0 sm:px-3.5 sm:py-2.5 rounded-full sm:rounded-2xl bg-white/95 backdrop-blur-xl border border-emerald-200/90 shadow-lg shadow-emerald-950/10 hover:border-emerald-400 focus:outline-none transition-all active:scale-95 cursor-pointer text-slate-800"
+      title="আমি বাংলায় গান গাই • Play / Pause (Space)"
+      aria-label="Play or Pause Background Music"
     >
-      <!-- Animated Equalizer Bars -->
-      <div id="eq-visualizer" class="flex items-end gap-0.5 h-3.5 w-3.5 justify-center flex-shrink-0">
-        <span class="w-0.5 bg-emerald-500 rounded-full eq-bar-1"></span>
-        <span class="w-0.5 bg-emerald-600 rounded-full eq-bar-2"></span>
-        <span class="w-0.5 bg-teal-500 rounded-full eq-bar-3"></span>
-        <span class="w-0.5 bg-emerald-400 rounded-full eq-bar-4"></span>
+      <!-- Play & Pause Icon (Only element on mobile; replaces sound icon on PC) -->
+      <div class="flex items-center justify-center text-emerald-600 group-hover:text-emerald-700 transition-colors flex-shrink-0">
+        <!-- Pause Icon (shown when audio is playing) -->
+        <svg id="audio-icon-pause" class="w-4 h-4 fill-current text-emerald-600" viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+        <!-- Play Icon (shown when audio is paused/muted) -->
+        <svg id="audio-icon-play" class="w-4 h-4 fill-current text-slate-700 ml-0.5 hidden" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
       </div>
 
-      <!-- Desktop Only: Compact Title (Completely Hidden on Mobile as requested) -->
-      <div class="hidden sm:flex items-center gap-2 text-left">
+      <!-- Desktop Only: Compact Title (Completely Hidden on Mobile) -->
+      <div class="hidden sm:flex items-center gap-2 pl-2 text-left">
         <span class="text-xs font-semibold text-slate-800 font-bangla whitespace-nowrap leading-none">আমি বাংলায় গান গাই</span>
         <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200">Space</span>
-      </div>
-
-      <!-- Icon Indicator (Speaker on mobile & desktop) -->
-      <div class="flex-shrink-0 text-emerald-600 group-hover:text-emerald-700 transition-colors">
-        <!-- Speaker Waves Icon -->
-        <svg id="audio-icon-unmuted" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-        </svg>
-        <!-- Speaker Muted Icon -->
-        <svg id="audio-icon-muted" class="w-4 h-4 hidden text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-        </svg>
       </div>
     </button>
   </aside>
@@ -1411,8 +1402,8 @@
     const bgAudio = document.getElementById('bg-audio');
     const audioMasterBtn = document.getElementById('audio-master-btn');
     const eqVisualizer = document.getElementById('eq-visualizer');
-    const audioIconUnmuted = document.getElementById('audio-icon-unmuted');
-    const audioIconMuted = document.getElementById('audio-icon-muted');
+    const audioIconPause = document.getElementById('audio-icon-pause');
+    const audioIconPlay = document.getElementById('audio-icon-play');
     const audioStatusText = document.getElementById('audio-status-text');
     const audioBadge = document.getElementById('audio-badge');
 
@@ -1426,16 +1417,15 @@
 
     function updateAudioUI(isPlaying, isMuted) {
       if (isPlaying && !isMuted) {
-        eqVisualizer.classList.remove('eq-paused');
-        audioIconUnmuted.classList.remove('hidden');
-        audioIconMuted.classList.add('hidden');
-        if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'আমি বাংলায় গান গাই • বাজছে (Space = Mute)');
+        if (audioIconPause) audioIconPause.classList.remove('hidden');
+        if (audioIconPlay) audioIconPlay.classList.add('hidden');
+        if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'পজ করুন (Space = Pause)');
       } else {
-        eqVisualizer.classList.add('eq-paused');
-        audioIconUnmuted.classList.add('hidden');
-        audioIconMuted.classList.remove('hidden');
-        if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'আমি বাংলায় গান গাই • মিউটেড (Space = Play)');
+        if (audioIconPause) audioIconPause.classList.add('hidden');
+        if (audioIconPlay) audioIconPlay.classList.remove('hidden');
+        if (audioMasterBtn) audioMasterBtn.setAttribute('title', 'প্লে করুন (Space = Play)');
       }
+    }
     }
 
     async function playAudio() {
