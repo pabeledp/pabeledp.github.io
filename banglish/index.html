@@ -757,81 +757,359 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 5. Phonetic Cheatsheet & Keyboard Shortcuts             -->
+  <!-- 5. Phonetic Typing Guide & Key Chart (টাইপিং গাইড ও বর্ণ চার্ট) -->
   <!-- ======================================================== -->
-  <section id="cheatsheet" class="py-16 bg-white/60 border-t border-b border-emerald-100/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="cheatsheet" class="py-16 sm:py-20 bg-slate-50/70 border-t border-b border-emerald-100/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-bangla">
-          জনপ্রিয় ফোনেটিক শর্টকাট ও কী-ম্যাপ রেফারেন্স
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-semibold font-mono uppercase tracking-wider">
+          Avro Phonetic Scheme Reference
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-sans tracking-tight">
+          Phonetic Typing Guide & Key Chart <span class="block text-xl sm:text-2xl text-emerald-700 font-bangla font-bold mt-1">(টাইপিং গাইড ও বর্ণ চার্ট)</span>
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-bangla">
-          স্বভাবসুলভ ফোনেটিক ম্যাপিং—যা লিখবেন ঠিক তাই ফুটে উঠবে স্ক্রিনে।
+        <p class="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
+          Banglish implements the standard Avro Phonetic scheme. Here is the complete, clean reference guide for vowels, consonants, modifiers (ফলা), and complex conjuncts (যুক্তাক্ষর).
         </p>
       </div>
 
-      <!-- Responsive Cheatsheet Grid with Smooth Card Hover -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 max-w-5xl mx-auto">
+      <!-- 1. Vowels & Signs Table -->
+      <div class="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+        <div class="px-5 py-4 sm:px-6 sm:py-4.5 bg-gradient-to-r from-emerald-50/90 to-teal-50/50 border-b border-slate-200/80 flex items-center justify-between">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 font-bangla flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            ১. স্বরবর্ণ ও কার চিহ্ন (Vowels & Signs)
+          </h3>
+          <span class="text-xs font-mono text-emerald-700 font-semibold bg-emerald-100/70 px-2.5 py-0.5 rounded-full">11 Vowels</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-slate-200/80 bg-slate-50/70 text-slate-600 font-mono text-[11px] sm:text-xs uppercase tracking-wider">
+                <th class="py-3 px-4 sm:px-6 font-semibold">English Key</th>
+                <th class="py-3 px-4 sm:px-6 font-semibold">বাংলা স্বরবর্ণ</th>
+                <th class="py-3 px-4 sm:px-6 font-semibold">কার রূপ</th>
+                <th class="py-3 px-4 sm:px-6 font-semibold">উদাহরণ (Example)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-sans">
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">o / a</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">অ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-500 italic">(উহ্য)</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">onek</span> → <strong class="text-slate-900 font-bold">অনেক</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">a / A / aa</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">আ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">া</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">aakash</span> → <strong class="text-slate-900">আকাশ</strong>, <span class="font-mono text-slate-500">baba</span> → <strong class="text-slate-900">বাবা</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">i</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ই</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ি</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">iti</span> → <strong class="text-slate-900">ইতি</strong>, <span class="font-mono text-slate-500">kintu</span> → <strong class="text-slate-900">কিন্তু</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">I / ee</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ঈ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ী</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">Ishwar</span> → <strong class="text-slate-900">ঈশ্বর</strong>, <span class="font-mono text-slate-500">nodI</span> → <strong class="text-slate-900">নদী</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">u</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">উ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ু</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">upor</span> → <strong class="text-slate-900">উপর</strong>, <span class="font-mono text-slate-500">tumi</span> → <strong class="text-slate-900">তুমি</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">U / oo</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ঊ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ূ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">Usha</span> → <strong class="text-slate-900">ঊষা</strong>, <span class="font-mono text-slate-500">mUlo</span> → <strong class="text-slate-900">মূলো</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">rri</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ঋ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ৃ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">rritu</span> → <strong class="text-slate-900">ঋতু</strong>, <span class="font-mono text-slate-500">kripa</span> → <strong class="text-slate-900">কৃপা</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">e</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">এ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ে</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">ekhon</span> → <strong class="text-slate-900">এখন</strong>, <span class="font-mono text-slate-500">desh</span> → <strong class="text-slate-900">দেশ</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">OI / oi</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ঐ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ৈ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">Oikyo</span> → <strong class="text-slate-900">ঐক্য</strong>, <span class="font-mono text-slate-500">toiri</span> → <strong class="text-slate-900">তৈরি</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">O / o</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ও</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ো</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">olpo</span> → <strong class="text-slate-900">অল্প</strong>, <span class="font-mono text-slate-500">kothao</span> → <strong class="text-slate-900">কোথাও</strong></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-mono font-bold text-emerald-700">OU / ou</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-slate-900">ঔ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-base sm:text-lg font-bold text-emerald-600">ৌ</td>
+                <td class="py-3 px-4 sm:px-6 font-bangla text-slate-700"><span class="font-mono text-slate-500">OUshodh</span> → <strong class="text-slate-900">ঔষধ</strong>, <span class="font-mono text-slate-500">pOUsh</span> → <strong class="text-slate-900">পৌষ</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. Consonants & Special Signs Grid -->
+      <div class="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm p-5 sm:p-7 md:p-8 space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 font-bangla flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            ২. ব্যঞ্জনবর্ণ ও চিহ্ন (Consonants & Signs)
+          </h3>
+          <span class="text-xs font-mono text-emerald-700 font-semibold bg-emerald-100/70 px-2.5 py-0.5 rounded-full">39 Consonants & Marks</span>
+        </div>
+
+        <!-- Responsive 5-column Consonants Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3">
+          
+          <!-- Row 1 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">k</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ক</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">kh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">খ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">g</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">গ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">gh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঘ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Ng</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঙ</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">c / ch</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">চ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Ch</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ছ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">j</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">জ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">jh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঝ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">NG</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঞ</span>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">T</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ট</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Th</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঠ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">D</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ড</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Dh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঢ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">N</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ণ</span>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">t</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ত</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">th</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">থ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">d</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">দ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">dh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ধ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">n</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ন</span>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">p</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">প</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">f / ph</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ফ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">b</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ব</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">bh / v</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ভ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">m</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ম</span>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">z / y</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">য</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">r</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">র</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">l</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ল</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">sh / S</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">শ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Sh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ষ</span>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">s</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">স</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">h</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">হ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">R</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ড়</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">Rh</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঢ়</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-slate-50/80 hover:bg-emerald-50/50 border border-slate-200/80 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-emerald-700">y / Y</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">য়</span>
+          </div>
+
+          <!-- Row 8: Special Signs & Diacritics -->
+          <div class="hover-card p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/60 border border-emerald-200/90 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-bold text-emerald-800">`t</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ৎ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/60 border border-emerald-200/90 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-bold text-emerald-800">ng</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ং</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/60 border border-emerald-200/90 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-bold text-emerald-800">`:</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঃ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/60 border border-emerald-200/90 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-bold text-emerald-800">^ / **</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">ঁ</span>
+          </div>
+          <div class="hover-card p-3 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/60 border border-emerald-200/90 flex items-center justify-between">
+            <span class="font-mono text-xs sm:text-sm font-bold text-emerald-800">. (Dot)</span>
+            <span class="font-bangla text-xl sm:text-2xl font-bold text-slate-900">।</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. Modifiers (ফলা), Conjuncts (যুক্তাক্ষর) & Shortcut Reference -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">ami</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">আমি</div>
+        <div class="hover-card bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2.5">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs font-mono">1</div>
+            <h4 class="font-bold text-slate-900 font-bangla text-base">যুক্তাক্ষর তৈরি (Conjuncts)</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-bangla leading-relaxed">
+            দুটি ব্যঞ্জনবর্ণের মাঝে স্বরবর্ণ না দিয়ে পরপর লিখলেই স্বয়ংক্রিয়ভাবে যুক্তবর্ণ গঠিত হয়।
+          </p>
+          <div class="pt-1 space-y-1 font-mono text-xs text-slate-700">
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-emerald-700 font-semibold">k + t</span> → <span class="font-bangla font-bold text-slate-900 text-sm">ক্ত</span> <span class="text-slate-400 font-bangla">(rokti → রক্ত)</span></div>
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-emerald-700 font-semibold">s + t</span> → <span class="font-bangla font-bold text-slate-900 text-sm">স্ত</span> <span class="text-slate-400 font-bangla">(rasta → রাস্তা)</span></div>
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-emerald-700 font-semibold">b + d</span> → <span class="font-bangla font-bold text-slate-900 text-sm">ব্দ</span> <span class="text-slate-400 font-bangla">(shobdo → শব্দ)</span></div>
+          </div>
         </div>
 
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">bangla</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">বাংলা</div>
+        <div class="hover-card bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2.5">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-xs font-mono">2</div>
+            <h4 class="font-bold text-slate-900 font-bangla text-base">ফলা ও বিশেষ রূপ (Modifiers)</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-bangla leading-relaxed">
+            য-ফলা, র-ফলা, রেফ ও ব-ফলা লেখার সহজ নিয়ম:
+          </p>
+          <div class="pt-1 space-y-1 font-mono text-xs text-slate-700">
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-teal-700 font-semibold">y / Z</span> → <span class="font-bangla font-bold text-slate-900 text-sm">্য</span> <span class="text-slate-400 font-bangla">(bakya → বাক্য)</span></div>
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-teal-700 font-semibold">r / rr</span> → <span class="font-bangla font-bold text-slate-900 text-sm">্র / র্</span> <span class="text-slate-400 font-bangla">(gram → গ্রাম, kormo → কর্ম)</span></div>
+            <div><span class="bg-slate-100 px-1.5 py-0.5 rounded text-teal-700 font-semibold">w / b</span> → <span class="font-bangla font-bold text-slate-900 text-sm">্ব</span> <span class="text-slate-400 font-bangla">(shwadhin → স্বাধীন)</span></div>
+          </div>
         </div>
 
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">kemon</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">কেমন</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">desh</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">দেশ</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">dhaka</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">ঢাকা</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">bhalo</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">ভালো</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">kormo</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">কর্ম</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">shundor</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">সুন্দর</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">ruti</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">রুটি</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">. (Dot)</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">। (দাঁড়ি)</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-700 text-xs sm:text-sm font-semibold">$ (Dollar)</div>
-          <div class="font-bangla text-lg sm:text-xl font-bold text-slate-900 mt-1">৳ (টাকা)</div>
-        </div>
-
-        <div class="hover-card p-3.5 sm:p-4 rounded-xl bg-emerald-50/80 border border-emerald-200 text-center shadow-xs">
-          <div class="font-mono text-emerald-800 text-xs font-semibold">⌥ + Space</div>
-          <div class="font-bangla text-xs sm:text-sm font-bold text-emerald-950 mt-1">বাংলা/ইংরেজি টগল</div>
+        <div class="hover-card bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2.5">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs font-mono">3</div>
+            <h4 class="font-bold text-slate-900 font-bangla text-base">টগল শর্টকাট (Toggle Shortcut)</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-bangla leading-relaxed">
+            ম্যাকের যেকোনো অ্যাপে টাইপ করার সময় বাংলা ও ইংরেজির মধ্যে দ্রুত অদলবদল করুন:
+          </p>
+          <div class="pt-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-mono text-xs sm:text-sm font-bold shadow-2xs">
+              <kbd class="px-2 py-1 rounded bg-white border border-emerald-300 shadow-2xs">⌥ Option</kbd>
+              <span>+</span>
+              <kbd class="px-2 py-1 rounded bg-white border border-emerald-300 shadow-2xs">Space</kbd>
+            </div>
+            <p class="text-[11px] text-slate-500 font-bangla mt-2">
+              অথবা সিস্টেম ডিফল্ট <code class="font-mono bg-slate-100 px-1 py-0.5 rounded">Ctrl + Space</code> ব্যবহার করুন।
+            </p>
+          </div>
         </div>
 
       </div>
