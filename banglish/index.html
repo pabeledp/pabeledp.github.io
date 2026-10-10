@@ -1521,6 +1521,7 @@
           mobileMenu.classList.add('hidden');
           menuOpenIcon.classList.remove('hidden');
           menuCloseIcon.classList.add('hidden');
+        });
       });
     }
 
@@ -1542,6 +1543,7 @@
         winBtn.className = "flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900";
         macContent.classList.remove('hidden');
         winContent.classList.add('hidden');
+      }
     }
 
     // Desktop Download Dropdown Click & Hover Management
@@ -1852,9 +1854,11 @@
     }
 
     // Launch Auto-Demo automatically when page loads
-    window.addEventListener('DOMContentLoaded', () => {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startAutoDemo);
+    } else {
       startAutoDemo();
-    });
+    }
 
     // ==========================================
     // ==========================================
