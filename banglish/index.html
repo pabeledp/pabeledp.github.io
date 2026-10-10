@@ -424,7 +424,7 @@
 
 
             <!-- Input & Output Dual Display -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-5">
               
               <!-- English Phonetic Input Box -->
               <div class="space-y-2">
@@ -449,10 +449,6 @@
                     abc
                   </div>
                 </div>
-                <div class="text-[11px] text-slate-600 font-bangla flex items-center gap-1">
-                  <span>💡 টিপস: </span>
-                  <span class="font-mono">k = ক, kh = খ, . = ।, $ = ৳</span>
-                </div>
               </div>
 
               <!-- Live Bangla Transliterated Output Box -->
@@ -467,18 +463,8 @@
                     <span id="copy-btn-text">কপি করুন</span>
                   </button>
                 </div>
-                <div class="relative min-h-[58px] px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-50/70 to-teal-50/50 border border-emerald-200/90 flex items-center justify-between">
-                  <div id="bangla-output" class="text-lg sm:text-2xl font-bold font-bangla text-emerald-950 tracking-wide select-all break-words pr-2">
-                    ...
-                  </div>
-                  <div class="flex-shrink-0">
-                    <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 font-mono">
-                      UTF-8
-                    </span>
-                  </div>
-                </div>
-                <div class="text-[11px] text-emerald-700/90 font-bangla">
-                  ✓ Apple-এর যেকোনো Text Field ও App-এ এই একই গতিতে সরাসরি কাজ করবে।
+                <div class="relative min-h-[58px] px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-50/70 to-teal-50/50 border border-emerald-200/90 flex items-center">
+                  <div id="bangla-output" class="text-lg sm:text-2xl font-bold font-bangla text-emerald-950 tracking-wide select-all break-words pr-2 min-h-[1.75rem]"></div>
                 </div>
               </div>
 
@@ -1727,7 +1713,7 @@
     function updateSimulation() {
       const val = phoneticInput.value.trim();
       if (!val) {
-        banglaOutput.textContent = '...';
+        banglaOutput.textContent = '';
         return;
       }
       banglaOutput.textContent = transliteratePhonetic(phoneticInput.value);
